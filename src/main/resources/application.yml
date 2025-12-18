@@ -1,0 +1,9 @@
+# Configuración común de la aplicación
+spring:
+  application:
+    name: bazaar-backend
+  profiles:
+    active: dev
+
+server:
+    port: 8080

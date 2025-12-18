@@ -1,0 +1,28 @@
+# Configuración para el entorno de pruebas
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: bazaar_test
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+stripe:
+  apiKey: sk_test_TESTKEY
+
+jwt:
+  secret: test-test-test-test-test-test-test-test
+  prefix: Bearer
+  header: Authorization
+
+logging:
+  level:
+    "[org.hibernate.SQL]": DEBUG
+    "[org.hibernate.type.descriptor.sql.BasicBinder]": TRACE

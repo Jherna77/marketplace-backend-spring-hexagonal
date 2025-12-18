@@ -1,0 +1,30 @@
+# Configuración para el entorno de producción (servidor real)
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+stripe:
+  apiKey: ${STRIPE_API_KEY}
+
+jwt:
+  secret: ${JWT_SECRET}
+  prefix: Bearer
+  header: Authorization
+
+logging:
+  level:
+    "[org.hibernate.SQL]": WARN
+    "[org.hibernate.type.descriptor.sql.BasicBinder]": WARN
+
